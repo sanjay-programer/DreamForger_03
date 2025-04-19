@@ -68,99 +68,69 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Starscape />
+    <div className="min-h-screen flex">
       <Sidebar />
-
-      <main className="pl-[240px] p-8">
+      <div className="flex-1 pl-[240px] p-8">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold neon-text-cyan mb-2">Analytics Dashboard</h1>
-          <p className="text-gray-400">Track your progress and achievements</p>
+          <h1 className="text-5xl font-bold neon-text-cyan mb-4">Dashboard</h1>
+          <p className="text-2xl text-gray-400">Track your learning progress</p>
         </header>
 
-        {/* Stats Cards */}
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div 
-                key={index} 
-                className={cn(
-                  "glassmorphism p-6 rounded-lg",
-                  stat.color === "neon-cyan" ? "neon-border-cyan" : 
-                  stat.color === "neon-magenta" ? "neon-border-magenta" : "neon-border-green"
-                )}
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">{stat.label}</h3>
-                  <Icon className={cn(
-                    "w-6 h-6",
-                    stat.color === "neon-cyan" ? "text-neon-cyan" : 
-                    stat.color === "neon-magenta" ? "text-neon-magenta" : "text-neon-green"
-                  )} />
+          {stats.map((stat, index) => (
+            <div key={index} className="glassmorphism p-6 rounded-lg">
+              <div className="flex items-center space-x-4">
+                <div className={`p-3 rounded-lg bg-${stat.color}/20`}>
+                  <stat.icon className="w-8 h-8" />
                 </div>
-                <p className="text-3xl font-bold">{stat.value}</p>
+                <div>
+                  <h3 className="text-2xl font-bold">{stat.value}</h3>
+                  <p className="text-xl text-gray-300">{stat.label}</p>
+                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* Skills and Achievements */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Skills Section */}
-          <div className="glassmorphism-dark p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-6 neon-text-cyan">Skills Gained</h2>
-            <div className="space-y-4">
-              {skills.map((skill) => (
-                <div key={skill.id} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>{skill.name}</span>
-                    <span className="font-medium">0%</span>
-                  </div>
-                  <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full rounded-full bg-neon-cyan"
-                      style={{ width: '0%' }}
-                    ></div>
-                  </div>
+        {/* Skills Section */}
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold neon-text-magenta mb-6">Your Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skills.map((skill) => (
+              <div key={skill.id} className="glassmorphism p-6 rounded-lg">
+                <h3 className="text-2xl font-bold mb-2">{skill.name}</h3>
+                <div className="w-full bg-white/10 rounded-full h-4">
+                  <div 
+                    className="bg-neon-cyan h-4 rounded-full" 
+                    style={{ width: `${Math.floor(Math.random() * 100)}%` }}
+                  ></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Achievements Section */}
-          <div className="glassmorphism-dark p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-6 neon-text-magenta">Achievements</h2>
-            <div className="grid grid-cols-1 gap-4">
-              {achievements.map((achievement, index) => (
-                <div 
-                  key={index} 
-                  className={cn(
-                    "p-4 rounded-lg border flex items-start space-x-3",
-                    achievement.unlocked 
-                      ? "border-neon-green bg-neon-green/10"
-                      : "border-white/10 bg-white/5 opacity-60"
-                  )}
-                >
-                  <div className={cn(
-                    "w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0",
-                    achievement.unlocked ? "bg-neon-green" : "bg-white/10"
-                  )}>
-                    <Award className={cn(
-                      "w-5 h-5",
-                      achievement.unlocked ? "text-black" : "text-white/60"
-                    )} />
+        {/* Achievements Section */}
+        <div>
+          <h2 className="text-4xl font-bold neon-text-purple mb-6">Achievements</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {achievements.map((achievement, index) => (
+              <div key={index} className="glassmorphism p-6 rounded-lg">
+                <div className="flex items-center space-x-4">
+                  <div className={`p-3 rounded-lg ${achievement.unlocked ? 'bg-neon-green/20' : 'bg-white/10'}`}>
+                    <Award className="w-8 h-8" />
                   </div>
                   <div>
-                    <h3 className="font-bold">{achievement.name}</h3>
-                    <p className="text-sm opacity-80">{achievement.description}</p>
+                    <h3 className="text-2xl font-bold">{achievement.name}</h3>
+                    <p className="text-xl text-gray-300">{achievement.description}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

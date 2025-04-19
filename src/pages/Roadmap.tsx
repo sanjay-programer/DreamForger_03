@@ -1,4 +1,3 @@
-
 import { Starscape } from "@/components/Starscape";
 import { Sidebar } from "@/components/Sidebar";
 import { Upload, Check, Clock, Plus, FileImage, FileAudio, FileText } from "lucide-react";
@@ -108,18 +107,16 @@ const Roadmap = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Starscape />
+    <div className="min-h-screen flex">
       <Sidebar />
-
-      <main className="pl-[240px] p-8">
+      <div className="flex-1 pl-[240px] p-8">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold neon-text-cyan mb-2">Your Learning Roadmap</h1>
-          <p className="text-gray-400">Track your progress on the path to mastery</p>
+          <h1 className="text-5xl font-bold neon-text-cyan mb-4">Your Learning Roadmap</h1>
+          <p className="text-2xl text-gray-400">Track your progress on the path to mastery</p>
         </header>
 
         {/* Roadmap container */}
-        <div className="glassmorphism-dark rounded-xl p-8 max-w-3xl">
+        <div className="glassmorphism-dark rounded-xl p-8 max-w-4xl">
           {/* Roadmap nodes */}
           <div className="mb-10">
             {roadmapNodes.map((node, index) => (
@@ -135,35 +132,35 @@ const Roadmap = () => {
 
           {/* Generate New Task button */}
           <button className={cn(
-            "flex items-center justify-center space-x-2 py-3 px-6 rounded-lg",
+            "flex items-center justify-center space-x-2 py-4 px-8 rounded-lg",
             "bg-neon-cyan/20 hover:bg-neon-cyan/30 transition-all duration-300",
             "border border-neon-cyan hover:neon-glow-cyan",
             "fixed bottom-8 right-8"
           )}>
-            <Plus className="w-5 h-5" />
-            <span className="font-medium">Generate New Task</span>
+            <Plus className="w-6 h-6" />
+            <span className="text-xl font-medium">Generate New Task</span>
           </button>
         </div>
 
         {/* Proof upload panel */}
-        <div className="glassmorphism-dark mt-8 rounded-xl p-6 max-w-3xl">
-          <h2 className="text-xl font-bold mb-4">Upload Proof</h2>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="flex flex-col items-center p-4 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer transition-all">
-              <FileImage className="w-8 h-8 mb-2 text-neon-cyan" />
-              <span>Image</span>
+        <div className="glassmorphism-dark mt-8 rounded-xl p-8 max-w-4xl">
+          <h2 className="text-3xl font-bold mb-6">Upload Proof</h2>
+          <div className="grid grid-cols-3 gap-6">
+            <div className="flex flex-col items-center p-6 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer transition-all">
+              <FileImage className="w-12 h-12 mb-4 text-neon-cyan" />
+              <span className="text-xl">Image</span>
             </div>
-            <div className="flex flex-col items-center p-4 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer transition-all">
-              <FileAudio className="w-8 h-8 mb-2 text-neon-magenta" />
-              <span>Audio</span>
+            <div className="flex flex-col items-center p-6 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer transition-all">
+              <FileAudio className="w-12 h-12 mb-4 text-neon-magenta" />
+              <span className="text-xl">Audio</span>
             </div>
-            <div className="flex flex-col items-center p-4 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer transition-all">
-              <FileText className="w-8 h-8 mb-2 text-neon-green" />
-              <span>Text</span>
+            <div className="flex flex-col items-center p-6 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer transition-all">
+              <FileText className="w-12 h-12 mb-4 text-neon-green" />
+              <span className="text-xl">Text</span>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { useAuth } from '@/lib/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
+import { Sidebar } from '@/components/Sidebar';
 
 interface UserDetails {
   name: string;
@@ -60,46 +61,49 @@ const Settings = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 p-4">
-      <Card className="w-full max-w-4xl bg-gray-800 border-neon-cyan">
-        <CardHeader>
-          <CardTitle className="text-4xl text-white">Profile Settings</CardTitle>
-          <CardDescription className="text-xl text-gray-300">
-            View and manage your profile information
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-8">
-          {userDetails && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 bg-gray-700 rounded-lg">
-                <h3 className="text-2xl font-medium text-white mb-2">Name</h3>
-                <p className="text-xl text-gray-300">{userDetails.name}</p>
+    <div className="min-h-screen flex">
+      <Sidebar />
+      <div className="flex-1 pl-[240px] p-8">
+        <Card className="w-full max-w-4xl bg-card border-neon-cyan">
+          <CardHeader>
+            <CardTitle className="text-5xl text-white">Profile Settings</CardTitle>
+            <CardDescription className="text-2xl text-gray-300">
+              View and manage your profile information
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-8">
+            {userDetails && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-6 bg-gray-700 rounded-lg">
+                  <h3 className="text-3xl font-medium text-white mb-2">Name</h3>
+                  <p className="text-2xl text-gray-300">{userDetails.name}</p>
+                </div>
+                <div className="p-6 bg-gray-700 rounded-lg">
+                  <h3 className="text-3xl font-medium text-white mb-2">Age</h3>
+                  <p className="text-2xl text-gray-300">{userDetails.age}</p>
+                </div>
+                <div className="p-6 bg-gray-700 rounded-lg">
+                  <h3 className="text-3xl font-medium text-white mb-2">Education</h3>
+                  <p className="text-2xl text-gray-300">{userDetails.education}</p>
+                </div>
+                <div className="p-6 bg-gray-700 rounded-lg">
+                  <h3 className="text-3xl font-medium text-white mb-2">Dream Career</h3>
+                  <p className="text-2xl text-gray-300">{userDetails.dream}</p>
+                </div>
               </div>
-              <div className="p-6 bg-gray-700 rounded-lg">
-                <h3 className="text-2xl font-medium text-white mb-2">Age</h3>
-                <p className="text-xl text-gray-300">{userDetails.age}</p>
-              </div>
-              <div className="p-6 bg-gray-700 rounded-lg">
-                <h3 className="text-2xl font-medium text-white mb-2">Education</h3>
-                <p className="text-xl text-gray-300">{userDetails.education}</p>
-              </div>
-              <div className="p-6 bg-gray-700 rounded-lg">
-                <h3 className="text-2xl font-medium text-white mb-2">Dream Career</h3>
-                <p className="text-xl text-gray-300">{userDetails.dream}</p>
-              </div>
+            )}
+            <div className="flex justify-end">
+              <Button
+                variant="destructive"
+                className="h-14 text-2xl bg-red-600 hover:bg-red-700"
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
             </div>
-          )}
-          <div className="flex justify-end">
-            <Button
-              variant="destructive"
-              className="h-12 text-lg bg-red-600 hover:bg-red-700"
-              onClick={handleLogout}
-            >
-              Logout
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };

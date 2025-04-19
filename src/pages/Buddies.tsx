@@ -1,4 +1,3 @@
-
 import { Starscape } from "@/components/Starscape";
 import { Sidebar } from "@/components/Sidebar";
 import { Search, Filter, UserPlus, MessageSquare, Star } from "lucide-react";
@@ -177,41 +176,39 @@ const Buddies = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Starscape />
+    <div className="min-h-screen flex">
       <Sidebar />
-
-      <main className="pl-[240px] p-8">
+      <div className="flex-1 pl-[240px] p-8">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold neon-text-cyan mb-2">Find Dream Buddies</h1>
-          <p className="text-gray-400">Connect with others on similar learning journeys</p>
+          <h1 className="text-5xl font-bold neon-text-cyan mb-4">Find Dream Buddies</h1>
+          <p className="text-2xl text-gray-400">Connect with others on similar learning journeys</p>
         </header>
 
         {/* Filters and Search */}
-        <div className="flex flex-wrap gap-4 mb-8">
+        <div className="flex flex-wrap gap-6 mb-8">
           <div className="relative flex-grow max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
             <input
               type="text"
               placeholder="Search by name, skill, or dream..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg glassmorphism bg-white/5 border border-white/20 focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
+              className="w-full pl-12 pr-4 py-3 text-xl rounded-lg glassmorphism bg-white/5 border border-white/20 focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
             />
           </div>
 
-          <button className="flex items-center space-x-2 py-2 px-4 rounded-lg glassmorphism border border-white/20 hover:border-white/40">
-            <Filter className="w-5 h-5" />
+          <button className="flex items-center space-x-3 py-3 px-6 text-xl rounded-lg glassmorphism border border-white/20 hover:border-white/40">
+            <Filter className="w-6 h-6" />
             <span>Filters</span>
           </button>
 
-          <div className="flex space-x-2">
-            <button className="py-2 px-4 rounded-lg bg-neon-cyan/20 border border-neon-cyan hover:neon-glow-cyan">All</button>
-            <button className="py-2 px-4 rounded-lg bg-white/5 border border-white/20 hover:border-white/40">Online</button>
-            <button className="py-2 px-4 rounded-lg bg-white/5 border border-white/20 hover:border-white/40">Same Dream</button>
+          <div className="flex space-x-4">
+            <button className="py-3 px-6 text-xl rounded-lg bg-neon-cyan/20 border border-neon-cyan hover:neon-glow-cyan">All</button>
+            <button className="py-3 px-6 text-xl rounded-lg bg-white/5 border border-white/20 hover:border-white/40">Online</button>
+            <button className="py-3 px-6 text-xl rounded-lg bg-white/5 border border-white/20 hover:border-white/40">Same Dream</button>
           </div>
         </div>
 
         {/* Buddy Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {buddies.map(buddy => (
             <BuddyCard
               key={buddy.id}
@@ -226,45 +223,45 @@ const Buddies = () => {
 
         {/* Suggested Connections */}
         <div className="mt-12">
-          <h2 className="text-xl font-bold mb-6 neon-text-magenta">Recommended Connections</h2>
-          <div className="glassmorphism-dark rounded-lg p-6">
+          <h2 className="text-3xl font-bold mb-6 neon-text-magenta">Recommended Connections</h2>
+          <div className="glassmorphism-dark rounded-lg p-8">
             <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-neon-magenta to-neon-cyan flex items-center justify-center text-xl font-bold">
+              <div className="flex items-center space-x-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-magenta to-neon-cyan flex items-center justify-center text-2xl font-bold">
                   S
                 </div>
                 <div>
-                  <h3 className="font-bold">Sam Anderson</h3>
-                  <p className="text-sm text-gray-300">Mentor • 5+ years experience</p>
+                  <h3 className="text-2xl font-bold">Sam Anderson</h3>
+                  <p className="text-xl text-gray-300">Mentor • 5+ years experience</p>
                 </div>
               </div>
               
-              <div className="flex space-x-2">
-                <button className="p-2 rounded-full bg-white/10 hover:bg-white/20">
-                  <Star className="w-5 h-5 text-yellow-400" />
+              <div className="flex space-x-4">
+                <button className="p-3 rounded-full bg-white/10 hover:bg-white/20">
+                  <Star className="w-6 h-6 text-yellow-400" />
                 </button>
-                <button className="p-2 rounded-full bg-white/10 hover:bg-white/20">
-                  <MessageSquare className="w-5 h-5" />
+                <button className="p-3 rounded-full bg-white/10 hover:bg-white/20">
+                  <MessageSquare className="w-6 h-6" />
                 </button>
-                <button className="py-1 px-4 rounded-lg bg-neon-cyan/20 border border-neon-cyan hover:neon-glow-cyan">
-                  <span className="text-sm font-medium">Connect</span>
+                <button className="py-2 px-6 text-xl rounded-lg bg-neon-cyan/20 border border-neon-cyan hover:neon-glow-cyan">
+                  <span className="font-medium">Connect</span>
                 </button>
               </div>
             </div>
             
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-xl text-gray-300 mb-6">
               Sam specializes in your dream field and has mentored 12 successful learners. Based on your profile, you're a 97% match!
             </p>
             
-            <div className="flex flex-wrap gap-2">
-              <span className="text-xs py-1 px-2 rounded-full bg-white/10">JavaScript</span>
-              <span className="text-xs py-1 px-2 rounded-full bg-white/10">React</span>
-              <span className="text-xs py-1 px-2 rounded-full bg-white/10">Node.js</span>
-              <span className="text-xs py-1 px-2 rounded-full bg-white/10">Career Guidance</span>
+            <div className="flex flex-wrap gap-3">
+              <span className="text-lg py-2 px-4 rounded-full bg-white/10">JavaScript</span>
+              <span className="text-lg py-2 px-4 rounded-full bg-white/10">React</span>
+              <span className="text-lg py-2 px-4 rounded-full bg-white/10">Node.js</span>
+              <span className="text-lg py-2 px-4 rounded-full bg-white/10">Career Guidance</span>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
