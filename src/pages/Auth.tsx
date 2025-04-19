@@ -82,7 +82,7 @@ const Auth = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="h-14 text-xl bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
+                      className="h-16 bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
                     />
                     <Input
                       type="password"
@@ -90,7 +90,7 @@ const Auth = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      className="h-14 text-xl bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
+                      className="h-16 bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
                     />
                   </div>
                   <Button type="submit" className="w-full h-14 text-xl bg-neon-cyan hover:bg-neon-cyan/90 text-black font-bold">
@@ -107,7 +107,7 @@ const Auth = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="h-14 text-xl bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
+                      className="h-16 bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
                     />
                     <Input
                       type="password"
@@ -115,7 +115,7 @@ const Auth = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      className="h-14 text-xl bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
+                      className="h-16 bg-background/50 border-neon-cyan focus:border-neon-cyan focus:ring-neon-cyan"
                     />
                   </div>
                   <Button type="submit" className="w-full h-14 text-xl bg-neon-cyan hover:bg-neon-cyan/90 text-black font-bold">
